@@ -20,4 +20,8 @@ print()
 number = int(input("Enter a number: "))
 for i in range(number):
     print("*", end=' ')
+print()
 
+# d. print n lines of increasing stars
+for i in range(1, number+1):
+    print('*' * i)
