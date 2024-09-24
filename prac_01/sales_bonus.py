@@ -18,11 +18,12 @@ REQUIRED_SALES = 1000
 MINIMAL_BONUS = 0.1
 MAXIMUM_BONUS = 0.15
 sales = float(input("Enter sales: $"))
-while sales >= MINIMAL_SALES:
-    if sales < REQUIRED_SALES:
-        bonus = MINIMAL_BONUS
-    else:
-        bonus = MAXIMUM_BONUS
-    print(f"Your bonus is {bonus}% which gives you a total outcome of ${sales * bonus}")
+while sales < MINIMAL_SALES:
+    print("Invalid input")
     sales = float(input("Enter sales: $"))
-print("Invalid input")
+if sales < REQUIRED_SALES:
+    bonus = MINIMAL_BONUS
+else:
+    bonus = MAXIMUM_BONUS
+print(f"Your bonus is {bonus}% which gives you a total outcome of ${sales * bonus}")
+
