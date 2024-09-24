@@ -15,12 +15,14 @@ display invalid input
 """
 MINIMAL_SALES = 0
 REQUIRED_SALES = 1000
+MINIMAL_BONUS = 0.1
+MAXIMUM_BONUS = 0.15
 sales = float(input("Enter sales: $"))
 while sales >= MINIMAL_SALES:
     if sales < REQUIRED_SALES:
-        bonus = 0.1
+        bonus = MINIMAL_BONUS
     else:
-        bonus = 0.15
+        bonus = MAXIMUM_BONUS
     print(f"Your bonus is {bonus}% which gives you a total outcome of ${sales * bonus}")
     sales = float(input("Enter sales: $"))
 print("Invalid input")
