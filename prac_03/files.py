@@ -30,3 +30,4 @@ with open('numbers.txt', 'r') as file:
     for line in file:
         total += int(line.strip())  # Sum all numbers
     print(total)  # Prints the total of all numbers in the file
+

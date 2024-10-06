@@ -22,3 +22,4 @@ except ValueError:  # if not integers
     print("Numerator and denominator must be valid numbers!")
 
 print("Finished.")
+
