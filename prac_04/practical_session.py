@@ -1,6 +1,4 @@
 
-
-
 names = ["Ada", "Alan", "Bill", "John"]
 print(",".join(names))
 name_to_remove = input("What do you want to remove? ")
@@ -11,4 +9,3 @@ while len(names) != 0:
         print("Please try again.")
     print(names)
     name_to_remove = input("What do you want to remove? ")
-

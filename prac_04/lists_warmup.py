@@ -19,3 +19,4 @@ numbers[0] = "ten"  # Change the first element of numbers to "ten" (the string, 
 numbers[-1] = 1  # Change the last element of numbers to 1
 print(numbers[2:])  # Print all the elements from numbers except the first two (slice)
 print(9 in numbers)  # Print whether 9 is an element of numbers
+

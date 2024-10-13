@@ -31,3 +31,4 @@ def calculate_income(incomes, total, month):
 
 
 main()
+
