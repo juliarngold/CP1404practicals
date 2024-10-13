@@ -1,3 +1,6 @@
+
+
+
 names = ["Ada", "Alan", "Bill", "John"]
 print(",".join(names))
 name_to_remove = input("What do you want to remove? ")
