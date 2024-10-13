@@ -5,6 +5,9 @@ Basic list operations
 numbers = []
 for i in range(5):
     number = int(input("Enter a number: "))
+    while number < 0:
+        print("Invalid input")
+        number = int(input("Enter a number: "))
     numbers.append(number)
 print(f"The first number is {numbers[0]}")
 print(f"The last number is {numbers[-1]}")
