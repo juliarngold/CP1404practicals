@@ -10,7 +10,7 @@ def main():
     total_number_of_months = int(input(f"How many months? "))
 
     for month in range(1, total_number_of_months + 1):
-        income = float(input("Enter income for month " + str(month) + ": "))
+        income = float(input(f"Enter income for month {month}: "))
         incomes.append(income)
 
     print_report(incomes, total_number_of_months)
@@ -21,7 +21,7 @@ def print_report(incomes, total_number_of_months):
     total = 0
     for month in range(1, total_number_of_months + 1):
         income, total = calculate_income(incomes, total, month)
-        print("Month {:2} - Income: ${:10.2f} Total: ${:10.2f}".format(month, income, total))
+        print(f"Month {month:2} - Income: ${income:10.2f} Total: ${total:10.2f}")
 
 
 def calculate_income(incomes, total, month):
