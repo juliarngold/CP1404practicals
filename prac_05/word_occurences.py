@@ -38,5 +38,4 @@ def count_word(word, text):
     return count
 
 
-
 main()
