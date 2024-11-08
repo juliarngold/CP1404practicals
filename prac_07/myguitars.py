@@ -17,41 +17,31 @@ def add_new_guitar_to_list(guitars):
     print("Let's add a new guitar")
     name = input("Name: ")
     while name != "":
-        year = get_valid_year()
-        cost = get_valid_cost()
+        year = get_valid_number("Year: ", "Invalid year", int)
+        cost = get_valid_number("Cost: $", "Invalid cost", float)
         guitars.append(Guitar(name, year, cost))  # add new guitar to guitar list
         print(f"{name} ({year}) : ${cost} added.")
         name = input("Name: ")
 
 
 def display_guitars_sorted_by_year(guitars):
+    """display guitars sorted by their year"""
     guitars.sort()  # sort guitars by year
     for guitar in guitars:
         print(guitar)
 
 
-def get_valid_cost():
-    """Get valid guitar's cost"""
+def get_valid_number(prompt, message, data_type):
+    """Get valid guitar number for guitar's year and cost"""
     while True:
         try:
-            cost = float(input("Cost: $"))
+            number = data_type(input(prompt))
             break
         except ValueError:
-            print("Invalid cost")
+            print(message)
             pass
-    return cost
+    return number
 
-
-def get_valid_year():
-    """Get valid guitar's year"""
-    while True:
-        try:
-            year = float(input("Year: "))
-            break
-        except ValueError:
-            print("Invalid year")
-            pass
-    return year
 
 
 
