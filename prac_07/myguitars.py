@@ -13,6 +13,20 @@ def main():
     guitars.sort()  # sort guitars by year
     for guitar in guitars:
         print(guitar)
+    add_new_guitar(guitars)
+    # for guitar in guitars:
+    #     print(guitar)
+
+
+def add_new_guitar(guitars):
+    print("Lets add a new guitar")
+    new_guitar_name = input('Enter a guitar name: ')
+    new_guitar_year = input('Enter a guitar year: ')
+    new_guitar_cost = input('Enter a guitar cost: ')
+    guitar = Guitar(new_guitar_name, new_guitar_year, new_guitar_cost)
+    guitars.append(guitar)
+
+
 
 
 main()
