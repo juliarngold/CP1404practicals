@@ -18,3 +18,14 @@ MENU = "- (L)oad projects\n" \
 
 
 
+def get_valid_choice():
+    """Get valid choice from user"""
+    choice = input(">>> ").upper()
+    while choice not in VALID_CHOICES:
+        print("Invalid choice")
+        choice = input(">>> ")
+    return choice.upper()
+
+
+main()
+
