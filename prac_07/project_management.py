@@ -19,6 +19,46 @@ MENU = "- (L)oad projects\n" \
 
 
 
+def load_projects_from_default_file(projects):
+    """Load project list from default file projects.txt"""
+    with open("projects.txt", "r") as in_file:
+        next(in_file)
+        for line in in_file:
+            line = line.strip("\n").split("	")
+            name = line[0]
+            start_date = datetime.datetime.strptime(line[1], "%d/%m/%Y").date()
+            priority = int(line[2])
+            cost_estimate = float(line[3])
+            completion_percentage = int(line[4])
+            projects.append(Project(name, start_date, priority, cost_estimate, completion_percentage))
+            projects.sort(key=lambda x: x.priority)
+
+
+def load_projects(projects):
+    """Load project list from user's file"""
+    projects.clear()
+    while True:
+        try:
+            file_name = input("Enter filename: ")
+            with open(file_name, "r") as input_file:
+                next(input_file)
+                for line in input_file:
+                    line = line.strip("\n").split("	")
+                    name = line[0]
+                    start_date = datetime.datetime.strptime(line[1], "%d/%m/%Y").date()
+                    priority = int(line[2])
+                    cost_estimate = float(line[3])
+                    completion_percentage = int(line[4])
+                    projects.append(Project(name, start_date, priority, cost_estimate, completion_percentage))
+                    projects.sort(key=lambda x: x.priority)
+                print(f"Loaded {len(projects)} projects from {file_name}")
+                break
+        except FileNotFoundError:
+            print("Non-existing file")
+        except OSError:
+            print("Invalid file")
+
+
 def update_project(projects):
     """Update status of existing project"""
     for i, project in enumerate(projects, 0):
