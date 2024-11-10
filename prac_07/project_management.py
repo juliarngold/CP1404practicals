@@ -18,6 +18,23 @@ MENU = "- (L)oad projects\n" \
 
 
 
+
+def display_projects(projects):
+    """Print list of loaded projects"""
+    print("Incomplete projects: ")
+    for i in projects:
+        if i.completion_percentage != 100:
+            start_date = i.start_date
+            print(f"{i.name}, start: {start_date.strftime('%d/%m/%Y')}, priority {i.priority}, estimate: {i.cost_estimate}, "
+                  f"completion:"
+                  f" {i.completion_percentage}%")
+    print("Complete projects: ")
+    for i in projects:
+        if i.completion_percentage == 100:
+            print(f"{i.name}, start: {i.start_date.strftime('%d/%m/%Y')}, priority {i.priority}, estimate: {i.cost_estimate}, completion: {i.completion_percentage}%")
+
+
+
 def get_valid_choice():
     """Get valid choice from user"""
     choice = input(">>> ").upper()
