@@ -17,6 +17,75 @@ MENU = "- (L)oad projects\n" \
        "- (Q)uit"
 
 
+def main():
+    projects = []
+    load_projects_from_default_file(projects)
+    print(f"Welcome to Pythonic Project Management\nLoaded {len(projects)} projects from projects.txt")
+    print(MENU)
+
+    choice = get_valid_choice()
+
+    while choice != "Q":
+        if choice == "D":
+            display_projects(projects)
+
+        elif choice == "U":
+            update_project(projects)
+
+        elif choice == "A":
+            add_project(projects)
+
+        elif choice == "F":
+            filter_projects_by_date(projects)
+
+        elif choice == "L":
+            load_projects(projects)
+
+        elif choice == "S":
+            save_projects_to_file(projects)
+        print(MENU)
+        choice = get_valid_choice()
+    print("Would you like to save to projects.txt? Y/n")
+    save_projects_to_default_file(projects)
+    print("Thank you for using custom-built project management software.")
+
+
+def save_projects_to_default_file(projects):
+    """Save projects to default file projects.txt"""
+    if input(">>> ").upper() == "Y":
+        with open("projects.txt", "w") as input_file:
+            save_data_to_file(input_file, projects)
+
+
+def save_data_to_file(input_file, projects):
+    input_file.write("Name	Start Date	Priority	Cost Estimate	Completion Percentage\n")
+    for project in projects:
+        input_file.write(f"{project.name}	"
+                         f"{project.start_date.strftime('%d/%m/%Y')}	"
+                         f"{project.priority}	"
+                         f"{project.cost_estimate}	"
+                         f"{project.completion_percentage}\n")
+
+
+def save_projects_to_file(projects):
+    """Save project list to user's file"""
+    file_name = input("Enter filename: ")
+    with open(file_name, "w") as input_file:
+        save_data_to_file(input_file, projects)
+
+
+def filter_projects_by_date(projects):
+    """Show projects with start date after entered date"""
+    while True:
+        try:
+            filter_date = datetime.datetime.strptime(
+                input("Show projects that start after date (dd/mm/yyyy): "), "%d/%m/%Y").date()
+            break
+        except ValueError:
+            print("Invalid date")
+    for project in projects:
+        if project.start_date > filter_date:
+            print(project)
 
 
 def load_projects_from_default_file(projects):
