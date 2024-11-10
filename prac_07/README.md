@@ -4,7 +4,7 @@
 ### About This Repository
 This repository contains the practical exercises for CP1404 - Programming II, a course focused on object-oriented programming, clean code practices, and Python skills development. The exercises cover a variety of programming concepts and techniques that help reinforce the principles of clean, maintainable code.
 
-#### Author and Date 
+#### Author and Date  
 Julia Arngold, finished by 10th of Nov 
 
 ##### Key Lessons Learned
