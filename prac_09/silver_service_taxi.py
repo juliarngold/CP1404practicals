@@ -16,3 +16,14 @@ class SilverServiceTaxi(Taxi):
         return f"{self.name}, fuel={self.fuel}, odometer={self._odometer}, {self.current_fare_distance}km on current fare, $" \
                f"{self.price_per_km * self.fanciness:.2f}/km plus flagfall of {self.flagfall}"
 
+    def get_fare(self):
+        """Return the price for the taxi trip."""
+        return super().get_fare() * self.fanciness + self.flagfall
+
+    def start_fare(self):
+        """Begin a new fare."""
+        super().start_fare()
+
+    def drive(self, distance):
+        """Attempt to drive a given distance."""
+        super().drive(distance)
