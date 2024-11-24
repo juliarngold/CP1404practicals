@@ -40,3 +40,4 @@ if __name__ == '__main__':
     musician.instruments.append(Guitar("Ernie Ball Music Man Silhouette Special", 1993, 2499.0))
     print(musician)
     print(musician.play())
+

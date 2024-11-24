@@ -3,6 +3,7 @@ from silver_service_taxi import SilverServiceTaxi
 
 
 def main():
+    """display menu to chose from quit, chose a taxi or calculate the fare costs"""
     print("Let's drive!")
     taxis = [Taxi(100, "Prius"), SilverServiceTaxi(100, "Limo", 2), SilverServiceTaxi(200, "Hummer", 4)]
     current_taxi = None
@@ -38,12 +39,14 @@ def main():
 
 
 def display_taxis(taxis):
+    """display taxis"""
     print("Taxis available:")
     for i, taxi in enumerate(taxis):
         print(f"{i} - {taxi}")
 
 
 def choose_taxi(taxis, total_bill):
+    """get a taxi choice"""
     display_taxis(taxis)
     while True:
         choice = input("Choose taxi: ")
