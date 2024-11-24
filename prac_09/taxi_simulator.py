@@ -35,3 +35,24 @@ def main():
         else:
             print("Invalid option")
         print(f"Bill to date: ${total_bill:.2f}")
+
+
+def display_taxis(taxis):
+    print("Taxis available:")
+    for i, taxi in enumerate(taxis):
+        print(f"{i} - {taxi}")
+
+
+def choose_taxi(taxis, total_bill):
+    display_taxis(taxis)
+    while True:
+        choice = input("Choose taxi: ")
+        if choice.isdigit():
+            choice = int(choice)
+            if 0 <= choice < len(taxis):
+                return taxis[choice]
+        print("Invalid taxi choice")
+        print(f"Bill to date: ${total_bill:.2f}")
+
+
+main()
